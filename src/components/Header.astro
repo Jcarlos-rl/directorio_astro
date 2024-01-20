@@ -1,0 +1,20 @@
+---
+import Sidebar from "./Sidebar.astro";
+---
+<header class="container mx-auto px-6 md:px-0 mt-2">
+    <section class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <button id="open_sidebar">
+                <svg class="w-5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M80 96h352v32H80zm0 144h352v32H80zm0 144h352v32H80z"/>
+                </svg>
+            </button>
+            <p class="text-lg font-medium">Directorio</p>
+        </div>
+        <div>
+            <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">Publica</button>
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Acceder</button>
+        </div>
+    </section>
+</header>
+<Sidebar/>
