@@ -1,17 +1,72 @@
 ---
 import Sidebar from "./Sidebar.astro";
 import CarouselSections from "./CarouselSections.astro";
+
+const secciones = [
+    {
+        'title': 'Restaurantes',
+        'icon': 'restaurante.svg'
+    },
+    {
+        'title': 'Cafeterías',
+        'icon': 'cafeterias.svg'
+    },
+    {
+        'title': 'Club´s & Bares',
+        'icon': 'club.svg'
+    },
+    {
+        'title': 'Súper y Tiendas',
+        'icon': 'super.svg'
+    },
+    {
+        'title': 'Servicios',
+        'icon': 'servicios.svg'
+    },
+    {
+        'title': 'Hogar',
+        'icon': 'hogar.svg'
+    },
+    {
+        'title': 'Mascotas',
+        'icon': 'mascotas.svg'
+    },
+    {
+        'title': 'Salud',
+        'icon': 'salud.svg'
+    },
+    {
+        'title': 'Moda y Belleza',
+        'icon': 'moda.svg'
+    },
+    {
+        'title': 'Educación',
+        'icon': 'educacion.svg'
+    },
+    {
+        'title': 'Kids',
+        'icon': 'kids.svg'
+    },
+    {
+        'title': 'Arte y Cultura',
+        'icon': 'arte.svg'
+    },
+    {
+        'title': 'Inmobiliaria',
+        'icon': 'inmobiliaria.svg'
+    },
+];
 ---
 <header>
     <section class="container mx-auto px-6 md:px-0 my-3 grid grid-cols-12">
         <div class="col-span-12 flex justify-between">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1 md:gap-2">
                 <button id="open_sidebar">
                     <svg class="w-5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                         <path fill="currentColor" d="M80 96h352v32H80zm0 144h352v32H80zm0 144h352v32H80z"/>
                     </svg>
                 </button>
-                <p class="text-lg font-medium">Directorio</p>
+                <p class="text-med md:text-lg font-medium">Directorio</p>
             </div>
             <div class="flex gap-3">
                 <button>
@@ -25,11 +80,11 @@ import CarouselSections from "./CarouselSections.astro";
         </div>
     </section>
     <hr/>
-    <section class="container mx-auto px-6 md:px-0 my-5">
+    <section class="container mx-auto px-6 md:px-0 my-7">
         <input type="text" id="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Cualquier negocio" required>
     </section>
-    <section class="container mx-auto px-6 md:px-0 my-5">
-        <CarouselSections/>
+    <section class="container mx-auto px-6 md:px-0 mb-3">
+        <CarouselSections sections={ secciones }/>
     </section>
     <hr/>
 </header>
