@@ -1,6 +1,10 @@
 ---
+interface Sections {
+    title: string, 
+    icon: string
+}
 interface Props {
-    sections: []
+    sections: Sections[]
 };
 const { sections } = Astro.props;
 
