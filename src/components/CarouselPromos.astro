@@ -1,0 +1,86 @@
+<div id="carousel" class="overflow-hidden w-full relative pb-[20px]">
+    <div class="carousel-inner flex">
+        <div class="carousel-item min-w-full">
+            <img src="/images/banner1.png" alt="Slide 1" class="w-full">
+        </div>
+        <div class="carousel-item min-w-full">
+            <img src="/images/banner2.png" alt="Slide 2" class="w-full">
+        </div>
+        <div class="carousel-item min-w-full">
+            <img src="/images/banner3.png" alt="Slide 3" class="w-full">
+        </div>
+        <div class="carousel-item min-w-full">
+            <img src="/images/banner4.png" alt="Slide 1" class="w-full">
+        </div>
+    </div>
+    <div class="flex absolute bottom-[10px] left-[50%] translate-x-[-50%]">
+        <div class="indicator w-[18px] h-[5px] bg-slate-300 bg-slate-800 mx-[5px] cursor-pointer" data-dot-button="0"></div>
+        <div class="indicator w-[18px] h-[5px] bg-slate-300 mx-[5px] cursor-pointer" data-dot-button="1"></div>
+        <div class="indicator w-[18px] h-[5px] bg-slate-300 mx-[5px] cursor-pointer" data-dot-button="2"></div>
+        <div class="indicator w-[18px] h-[5px] bg-slate-300 mx-[5px] cursor-pointer" data-dot-button="3"></div>
+    </div>
+</div>
+<style>
+    .carousel-inner {
+        transition: transform 0.5s ease-in-out;
+    }
+</style>
+
+<script>
+    let currentIndex = 0,
+        initialX : any = null;
+    const buttons = document.querySelectorAll('[data-dot-button]'),
+        carousel = document.querySelector('#carousel') as HTMLDivElement,
+        totalSlides = document.querySelectorAll('.carousel-item').length,
+        indicators = document.querySelectorAll('.indicator');
+  
+    function updateCarousel() {
+        const carouselInner = document.querySelector('.carousel-inner') as HTMLDivElement;
+        carouselInner.style.transform = `translateX(${-currentIndex * 100}%)`;
+        
+        indicators.forEach((dot, index) => {
+            dot.classList.toggle('bg-slate-800', index === currentIndex);
+        });
+    }
+  
+    function nextSlide(){
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    };
+  
+    function prevSlide(){
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    };
+
+    buttons.forEach((button : any) => {
+        button.addEventListener('click', ()=>{
+            currentIndex = parseInt(button.getAttribute('data-dot-button'));
+            updateCarousel();
+        })
+    });
+
+    carousel.addEventListener('touchstart', (e)=> {
+        initialX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchmove', (e)=>{
+        if (initialX === null) {
+            return;
+        }
+
+        const currentX = e.touches[0].clientX;
+        const diffX = initialX - currentX;
+
+        if (diffX > 10) {
+            nextSlide();
+        } else if (diffX < -10) {
+            prevSlide();
+        }
+
+        initialX = null;
+    })
+
+    setInterval(nextSlide, 5000);
+</script>
+  
