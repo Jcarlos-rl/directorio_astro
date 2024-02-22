@@ -5,63 +5,77 @@ import CarouselSections from "./CarouselSections.astro";
 const secciones = [
     {
         'title': 'Populares',
-        'icon': 'populares.svg'
+        'icon': 'populares.svg',
+        'active': true
     },
     {
         'title': 'Restaurantes',
-        'icon': 'restaurante.svg'
+        'icon': 'restaurante.svg',
+        'active': false
     },
     {
         'title': 'Cafeterías',
-        'icon': 'cafeterias.svg'
+        'icon': 'cafeterias.svg',
+        'active': false
     },
     {
         'title': 'Club´s & Bares',
-        'icon': 'club.svg'
+        'icon': 'club.svg',
+        'active': false
     },
     {
         'title': 'Súper y Tiendas',
-        'icon': 'super.svg'
+        'icon': 'super.svg',
+        'active': false
     },
     {
         'title': 'Servicios',
-        'icon': 'servicios.svg'
+        'icon': 'servicios.svg',
+        'active': false
     },
     {
         'title': 'Hogar',
-        'icon': 'hogar.svg'
+        'icon': 'hogar.svg',
+        'active': false
     },
     {
         'title': 'Mascotas',
-        'icon': 'mascotas.svg'
+        'icon': 'mascotas.svg',
+        'active': false
     },
     {
         'title': 'Salud',
-        'icon': 'salud.svg'
+        'icon': 'salud.svg',
+        'active': false
     },
     {
         'title': 'Moda y Belleza',
-        'icon': 'moda.svg'
+        'icon': 'moda.svg',
+        'active': false
     },
     {
         'title': 'Educación',
-        'icon': 'educacion.svg'
+        'icon': 'educacion.svg',
+        'active': false
     },
     {
         'title': 'Kids',
-        'icon': 'kids.svg'
+        'icon': 'kids.svg',
+        'active': false
     },
     {
         'title': 'Arte y Cultura',
-        'icon': 'arte.svg'
+        'icon': 'arte.svg',
+        'active': false
     },
     {
         'title': 'Inmobiliaria',
-        'icon': 'inmobiliaria.svg'
+        'icon': 'inmobiliaria.svg',
+        'active': false
     },
 ];
 ---
-<header class="fixed w-full bg-white z-10">
+<header class="fixed w-full bg-white z-10 shadow-md">
     <section class="container mx-auto px-6 md:px-0 my-3 grid grid-cols-12">
         <div class="col-span-12 flex justify-between">
             <div class="flex items-center gap-1 md:gap-2">
@@ -98,6 +112,5 @@ const secciones = [
     <section class="container mx-auto px-6 md:px-0 mb-3">
         <CarouselSections sections={ secciones }/>
     </section>
-    <hr/>
 </header>
 <Sidebar/>

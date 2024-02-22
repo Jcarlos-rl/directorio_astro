@@ -1,7 +1,8 @@
 ---
 interface Sections {
     title: string, 
-    icon: string
+    icon: string,
+    active: boolean
 }
 interface Props {
     sections: Sections[]
@@ -11,8 +12,8 @@ const { sections } = Astro.props;
 ---
 <section class="flex gap-7 overflow-x-auto items-center">
     {
-        sections.map(({title, icon}) => (
-            <div class="flex flex-col items-center">
+        sections.map(({title, icon, active}) => (
+            <div class={`flex flex-col items-center ${ active ? "border-b-2 pb-2 border-black" : ""}`}>
                 <img class="w-6" src=`/svg/${icon}` alt=""/>
                 <div class="block">
                     <span class="text-sm whitespace-nowrap">{title}</span>
